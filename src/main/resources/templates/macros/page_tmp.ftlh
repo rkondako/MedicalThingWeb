@@ -36,23 +36,13 @@
                     </#if>
                     <#if isUser>
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="/user/profile">
+                            <a class="nav-link active" aria-current="page" href="/client/profile">
                                 <i style="color: black">Profile</i>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="/healthServices/all">
                                 <i style="color: black">Health services</i>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="/activity/all">
-                                <i style="color: black">Activities</i>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="/statistics/day">
-                                <i style="color: black">Statistics</i>
                             </a>
                         </li>
                         <li class="nav-item ms-5">

@@ -1,4 +1,4 @@
-<#import 'tokens.ftlh' as tokens>
+    <#import 'tokens.ftlh' as tokens>
 
 <#macro login>
     <form method="post" action="/login">
