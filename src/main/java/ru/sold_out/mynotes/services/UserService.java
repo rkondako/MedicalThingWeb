@@ -18,6 +18,7 @@ import ru.sold_out.mynotes.view_models.UserViewModel;
 
 import java.util.Comparator;
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 @Service
@@ -37,6 +38,13 @@ public class UserService implements UserDetailsService {
                 personInfo.getMiddleName().isBlank()
         ) {
 			return false;
+        }
+        if (user.getPerson() != null) {
+            user.getPerson().setName(personInfo.getName());
+            user.getPerson().setSurname(personInfo.getSurname());
+            user.getPerson().setMiddleName(personInfo.getMiddleName());
+            userRepo.save(user);
+            return true;
         }
         Person person = PersonMappingUtil.mapToEntity(personInfo);
         Person personUpdated = personRepo.save(person);
@@ -72,8 +80,8 @@ public class UserService implements UserDetailsService {
                 .toList();
     }
 
-    public void deleteById(Long id) {
-        if (id == null)
+    public void deleteById(Long id, User user) {
+        if (id == null || id.equals(user.getId()))
             return;
         Optional<User> userSearchResult = userRepo.findById(id);
         if (userSearchResult.isEmpty())
@@ -97,9 +105,9 @@ public class UserService implements UserDetailsService {
         return UserMappingUtil.mapToViewModel(searchResult.get());
     }
 
-    public void deleteByUsername(String username) {
+    public void deleteByUsername(String username, User user) {
         User userSearchResult = userRepo.findByUsername(username);
-        if (userSearchResult == null)
+        if (userSearchResult == null || Objects.equals(username, user.getUsername()))
             return;
         userRepo.delete(userSearchResult);
     }

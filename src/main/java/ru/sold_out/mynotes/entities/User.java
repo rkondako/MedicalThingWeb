@@ -74,6 +74,18 @@ public class User implements Serializable, UserDetails {
 	})
 	private Person person;
 
+	@OneToMany(
+			mappedBy = "user",
+			fetch = FetchType.LAZY,
+			cascade = {
+					CascadeType.MERGE,
+					CascadeType.DETACH,
+					CascadeType.REFRESH,
+					CascadeType.REMOVE
+			}
+	)
+	private Set<Appointment> appointments;
+
 	public boolean isAdmin() {
 		return roles.contains(Role.ADMIN);
 	}

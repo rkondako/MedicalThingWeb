@@ -28,5 +28,4 @@ public class MedicalThing implements Serializable {
 
 	@Column(nullable = false)
 	private Integer treatmentPrice;
-
 }

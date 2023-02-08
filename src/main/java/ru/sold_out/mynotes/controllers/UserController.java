@@ -2,6 +2,7 @@ package ru.sold_out.mynotes.controllers;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import ru.sold_out.mynotes.dto.AccessRights;
 import ru.sold_out.mynotes.dto.AuthorizationInfo;
+import ru.sold_out.mynotes.entities.User;
 import ru.sold_out.mynotes.entities.additional_user_info.Role;
 import ru.sold_out.mynotes.services.UserService;
 import ru.sold_out.mynotes.view_models.UserViewModel;
@@ -39,14 +41,14 @@ public class UserController {
 	}
 
 	@PostMapping("/deleteByUsername")
-	public String deleteByUsername(@RequestParam(required = false) String username) {
-		userService.deleteByUsername(username);
+	public String deleteByUsername(@RequestParam(required = false) String username, @AuthenticationPrincipal User user) {
+		userService.deleteByUsername(username, user);
 		return "redirect:/user/all";
 	}
 
 	@PostMapping("/deleteById")
-	public String deleteById(@RequestParam(required = false) Long id) {
-		userService.deleteById(id);
+	public String deleteById(@RequestParam(required = false) Long id, @AuthenticationPrincipal User user) {
+		userService.deleteById(id, user);
 		return "redirect:/user/all";
 	}
 

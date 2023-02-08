@@ -22,6 +22,7 @@ public class ActivityMappingUtil {
 		activityViewModel.setSpentTime(activity.getSpentTime());
 		activityViewModel.setDate(activity.getDate());
 		activityViewModel.setDescription(activity.getDescription());
+
 		return activityViewModel;
 	}
 }

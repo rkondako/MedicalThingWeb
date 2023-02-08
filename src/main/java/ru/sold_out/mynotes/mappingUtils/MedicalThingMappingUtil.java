@@ -4,7 +4,7 @@ import ru.sold_out.mynotes.dto.MedicalThingInfo;
 import ru.sold_out.mynotes.entities.MedicalThing;
 import ru.sold_out.mynotes.view_models.MedicalThingViewModel;
 
-public class MedicalThingUtil {
+public class MedicalThingMappingUtil {
 	public static MedicalThing mapToEntity(MedicalThingInfo medicalThingInfo) {
 		MedicalThing medicalThing = new MedicalThing();
 		medicalThing.setName(medicalThingInfo.getName());

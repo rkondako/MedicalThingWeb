@@ -1,6 +1,7 @@
 package ru.sold_out.mynotes.controllers;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -28,6 +29,7 @@ public class MedicalThingController {
 		return "pages/healthServices";
 	}
 
+	@Secured("ADMIN")
 	@PostMapping("/add")
 	public String save(MedicalThingInfo medicalThingInfo) {
 		System.out.println(medicalThingInfo);
@@ -35,6 +37,7 @@ public class MedicalThingController {
 		return "redirect:/healthServices/all";
 	}
 
+	@Secured("ADMIN")
 	@PostMapping("/deleteByName")
 	public String deleteByName(@RequestParam(required = false) String name) {
 		medicalThingService.deleteByName(name);

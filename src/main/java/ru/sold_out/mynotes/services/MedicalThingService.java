@@ -4,7 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import ru.sold_out.mynotes.dto.MedicalThingInfo;
 import ru.sold_out.mynotes.entities.MedicalThing;
-import ru.sold_out.mynotes.mappingUtils.MedicalThingUtil;
+import ru.sold_out.mynotes.mappingUtils.MedicalThingMappingUtil;
 import ru.sold_out.mynotes.repos.MedicalThingRepo;
 import ru.sold_out.mynotes.view_models.MedicalThingViewModel;
 
@@ -18,7 +18,7 @@ public class MedicalThingService {
 	public List<MedicalThingViewModel> findAll() {
 		return medicalThingRepo.findAll()
 				.stream()
-				.map(MedicalThingUtil::mapToViewModel)
+				.map(MedicalThingMappingUtil::mapToViewModel)
 				.toList();
 	}
 
@@ -27,7 +27,7 @@ public class MedicalThingService {
 		if (medicalThingInfo.getName().isBlank() || medicalThingByName != null) {
 			return false;
 		}
-		MedicalThing medicalThing = MedicalThingUtil.mapToEntity(medicalThingInfo);
+		MedicalThing medicalThing = MedicalThingMappingUtil.mapToEntity(medicalThingInfo);
 		medicalThingRepo.save(medicalThing);
 		return true;
 	}

@@ -1,23 +1,26 @@
 <#import '../macros/page_tmp.ftlh' as page_tmp>
 <#import '../macros/forms_tmp.ftlh' as forms>
+<#include "../security.ftlh">
 
 <@page_tmp.page>
-    <p>
-        <a class="btn btn-success mt-5"
-           data-bs-toggle="collapse"
-           href="#add" role="button"
-           aria-expanded="true"
-           aria-controls="collapseExample">
-            Add new
-        </a>
-        <a class="btn btn-success mx-3 mt-5"
-           data-bs-toggle="collapse"
-           href="#delete" role="button"
-           aria-expanded="true"
-           aria-controls="collapseExample">
-            Delete
-        </a>
-    </p>
+    <#if isAdmin>
+        <p>
+            <a class="btn btn-success mt-5"
+               data-bs-toggle="collapse"
+               href="#add" role="button"
+               aria-expanded="true"
+               aria-controls="collapseExample">
+                Add new
+            </a>
+            <a class="btn btn-success mx-3 mt-5"
+               data-bs-toggle="collapse"
+               href="#delete" role="button"
+               aria-expanded="true"
+               aria-controls="collapseExample">
+                Delete
+            </a>
+        </p>
+    </#if>
     <div class="collapse mt-5" id="add">
         <@forms.post_form "/healthServices/add">
             <div class="row">

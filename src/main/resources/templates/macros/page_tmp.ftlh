@@ -5,7 +5,7 @@
     <!DOCTYPE HTML>
     <html lang="en">
     <head>
-        <title>Activity Notes</title>
+        <title>Medical Service</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
@@ -43,6 +43,11 @@
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="/healthServices/all">
                                 <i style="color: black">Health services</i>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="/appointment/all">
+                                <i style="color: black">Appointment</i>
                             </a>
                         </li>
                         <li class="nav-item ms-5">
