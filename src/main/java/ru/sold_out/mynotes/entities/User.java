@@ -42,30 +42,6 @@ public class User implements Serializable, UserDetails {
 	@Enumerated(EnumType.STRING)
 	private Set<Role> roles;
 
-	@OneToMany(
-			mappedBy = "user",
-			fetch = FetchType.LAZY,
-			cascade = {
-					CascadeType.MERGE,
-					CascadeType.DETACH,
-					CascadeType.REFRESH,
-					CascadeType.REMOVE
-			}
-	)
-	private Set<Activity> activities;
-
-	@OneToMany(
-			mappedBy = "user",
-			fetch = FetchType.LAZY,
-			cascade = {
-					CascadeType.MERGE,
-					CascadeType.DETACH,
-					CascadeType.REFRESH,
-					CascadeType.REMOVE
-			}
-	)
-	private Set<Subject> subjects;
-
 	@OneToOne(cascade = {
 			CascadeType.MERGE,
 			CascadeType.DETACH,
