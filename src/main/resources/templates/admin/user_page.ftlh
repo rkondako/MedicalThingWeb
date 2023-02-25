@@ -140,9 +140,9 @@
                 <th scope="row" style="border-radius: 20px"><i>${user.id}</i></th>
                 <td style="border-radius: 20px">
                     <div class="d-flex align-items-center">
-                        <img src="https://i.ibb.co/T8SfJtL/photo-2022-07-12-01-24-17.jpg"
+                        <img src="https://i.ibb.co/YdxTBN7/image.png"
                                 <#--src="https://ltdfoto.ru/images/2022/06/11/photo_2022-06-11_01-19-32.jpg"-->
-                             alt=""
+                             alt=" "
                              style="width: 50px; height: 50px"
                              class="rounded-circle"
                         />
