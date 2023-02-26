@@ -4,6 +4,7 @@
 <@page_tmp.page>
     <form method="post" action="/register">
         <div class="col-2 mt-5">
+
             <input type="text" class="form-control" name="username" placeholder="Enter username">
         </div>
         <div class="col-2 mt-4">

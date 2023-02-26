@@ -2,6 +2,7 @@
 <#import '../macros/forms_tmp.ftlh' as forms>
 
 <@page_tmp.page>
+    <div></div>
     <p>
         <a class="btn btn-success mt-5"
            data-bs-toggle="collapse"
