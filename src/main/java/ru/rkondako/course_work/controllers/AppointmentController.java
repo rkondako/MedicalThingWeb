@@ -1,6 +1,4 @@
 package ru.rkondako.course_work.controllers;
-
-
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -13,7 +11,6 @@ import ru.rkondako.course_work.dto.AppointmentInfo;
 import ru.rkondako.course_work.entities.User;
 import ru.rkondako.course_work.services.AppointmentService;
 import ru.rkondako.course_work.view_models.AppointmentViewModel;
-
 import java.util.List;
 import java.util.Map;
 
