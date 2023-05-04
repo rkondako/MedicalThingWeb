@@ -27,9 +27,11 @@ public class AppointmentService {
     }
 
 
+
     public boolean save(User user, AppointmentInfo appointmentInfo) {
         if (appointmentInfo.getHealthServiceName().isBlank() ||
                 appointmentInfo.getDate() == null ||
+        //appointmentInfo.getDate() < date == null ||
                 user.getPerson() == null) {
             return false;
         }

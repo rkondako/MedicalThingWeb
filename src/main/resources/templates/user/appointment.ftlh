@@ -29,6 +29,9 @@
                     <input type="date" class="form-control" placeholder="date" name="date">
                 </div>
                 <div class="col-2">
+                    <input type="time" class="form-control" placeholder="date" name="time">
+                </div>
+                <div class="col-2">
                     <button type="submit" class="btn btn-primary">Save</button>
                 </div>
             </div>

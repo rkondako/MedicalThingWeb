@@ -19,7 +19,7 @@ import java.util.Map;
 @RequestMapping(value = "/client")
 @RequiredArgsConstructor
 @PreAuthorize("hasAuthority('USER')")
-public class ProfileController {
+public class  ProfileController {
     private final UserService userService;
     @GetMapping("/profile")
     public String mainPage(@AuthenticationPrincipal User user, Map<String, Object> model) {

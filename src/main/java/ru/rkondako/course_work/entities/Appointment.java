@@ -9,12 +9,15 @@ import org.hibernate.annotations.OnDeleteAction;
 import javax.persistence.*;
 import java.io.Serial;
 import java.io.Serializable;
-import java.time.LocalDate;
+import java.util.Date;
+
 
 @Entity
+
 @Getter
 @Setter
 @NoArgsConstructor
+
 public class Appointment implements Serializable {
     @Serial
     private static final long serialVersionUID = 110;
@@ -24,16 +27,18 @@ public class Appointment implements Serializable {
     private Long id;
 
     @Column(nullable = false)
-    private LocalDate date;
+    private Date date;
 
-    @ManyToOne(
-            fetch = FetchType.LAZY,
-            cascade = {
-                    CascadeType.MERGE,
-                    CascadeType.DETACH,
-                    CascadeType.REFRESH,
-            }
-    )
+    //отношения в таблицах
+    @ManyToOne
+            (
+                    fetch = FetchType.LAZY,
+                    cascade = {
+                            CascadeType.MERGE,
+                            CascadeType.DETACH,
+                            CascadeType.REFRESH,
+                    }
+            )
     @OnDelete(action = OnDeleteAction.CASCADE)
     private MedicalThing medicalThing;
 

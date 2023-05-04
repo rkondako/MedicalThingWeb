@@ -5,7 +5,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import java.io.Serial;
 import java.io.Serializable;
-import java.time.LocalDate;
+import java.util.Date;
 
 @Data
 public class AppointmentInfo  implements Serializable {
@@ -13,6 +13,6 @@ public class AppointmentInfo  implements Serializable {
     private static final long serialVersionUID = 14L;
 
     private String  healthServiceName;
-    private @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate date;
+    private @DateTimeFormat(pattern = "yyyy-MM-dd 'T' HH:mm:ss ") Date date;
 
 }
