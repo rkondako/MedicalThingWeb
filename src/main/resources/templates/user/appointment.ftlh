@@ -26,7 +26,7 @@
                     <input type="text" class="form-control" placeholder="health service" name="healthServiceName">
                 </div>
                 <div class="col-2">
-                    <input type="date" class="form-control" placeholder="date" name="date">
+                    <input type="date" class="form-control" placeholder="date" name="data">
                 </div>
                 <div class="col-2">
                     <input type="time" class="form-control" placeholder="date" name="time">
