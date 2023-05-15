@@ -10,6 +10,8 @@ public class PersonInfo implements Serializable {
 	@Serial
 	private static final long serialVersionUID = 105L;
 
+	private String login;
+	private String password;
 	private String name;
 	private String surname;
 	private String middleName;

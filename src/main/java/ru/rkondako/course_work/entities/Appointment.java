@@ -9,6 +9,7 @@ import org.hibernate.annotations.OnDeleteAction;
 import javax.persistence.*;
 import java.io.Serial;
 import java.io.Serializable;
+import java.time.LocalTime;
 import java.util.Date;
 
 
@@ -29,6 +30,8 @@ public class Appointment implements Serializable {
     @Column(nullable = false)
     private Date date;
 
+    @Column(nullable = false)
+    private LocalTime time;
     //отношения в таблицах
     @ManyToOne
             (

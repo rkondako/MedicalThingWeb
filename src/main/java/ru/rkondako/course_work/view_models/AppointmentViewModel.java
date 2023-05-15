@@ -4,7 +4,6 @@ import lombok.Data;
 
 import java.io.Serial;
 import java.io.Serializable;
-import java.util.Date;
 
 @Data
         //@data делает для каждого из полей getter и setter
@@ -13,7 +12,8 @@ public class AppointmentViewModel implements Serializable {
     private static final long serialVersionUID = 15L;
 
     private Long id;
-    private Date date;
+    private String date;
+    private String time;
     private String medicalThingName;
     private String login;
     private String name;

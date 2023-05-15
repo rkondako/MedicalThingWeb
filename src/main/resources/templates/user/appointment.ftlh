@@ -6,30 +6,55 @@
     <p>
         <a class="btn btn-success mt-5"
            data-bs-toggle="collapse"
-           href="#add" role="button"
+           href="#selectDate" role="button"
            aria-expanded="true"
            aria-controls="collapseExample">
-            Add new subject
+            Select Date
+        </a>
+        <a class="btn btn-success mx-3 mt-5"
+           data-bs-toggle="collapse"
+           href="#selectTime" role="button"
+           aria-expanded="true"
+           aria-controls="collapseExample">
+            Select Time
         </a>
         <a class="btn btn-success mx-3 mt-5"
            data-bs-toggle="collapse"
            href="#delete" role="button"
            aria-expanded="true"
            aria-controls="collapseExample">
-            Delete subject
+            Delete
         </a>
     </p>
-    <div class="collapse mt-5" id="add">
-        <@forms.post_form "/appointment/add">
+    <div class="collapse mt-5" id="selectDate">
+        <@forms.post_form "/appointment/selectDate">
             <div class="row">
                 <div class="col-2">
                     <input type="text" class="form-control" placeholder="health service" name="healthServiceName">
                 </div>
                 <div class="col-2">
-                    <input type="date" class="form-control" placeholder="date" name="data">
+                    <input type="date" min="${minDate}" max="${maxDate}" class="form-control" placeholder="date" name="date">
                 </div>
                 <div class="col-2">
-                    <input type="time" class="form-control" placeholder="date" name="time">
+                    <button type="submit" class="btn btn-primary">Save</button>
+                </div>
+            </div>
+        </@forms.post_form>
+    </div>
+    <div class="collapse mt-5" id="selectTime">
+        <@forms.post_form "/appointment/all/${name}/${date}">
+        <datalist id="times">
+            <#list freeTimes as freeTime>
+                <option value="${freeTime}"></option>
+            </#list>
+            </datalist>
+            <div class="row">
+                <div class="col-2">
+                    <select name="time" id="time">
+                        <#list freeTimes as freeTime>
+                            <option value="${freeTime}">${freeTime}</option>
+                        </#list>
+                    </select>
                 </div>
                 <div class="col-2">
                     <button type="submit" class="btn btn-primary">Save</button>
@@ -64,6 +89,7 @@
             <th scope="col" style="border-radius: 20px; width: 15%"><i style="line-height: 300%">Surname</i></th>
             <th scope="col" style="border-radius: 20px; width: 15%"><i style="line-height: 300%">MiddleName</i></th>
             <th scope="col" style="border-radius: 20px; width: 15%"><i style="line-height: 300%">Date</i></th>
+            <th scope="col" style="border-radius: 20px; width: 15%"><i style="line-height: 300%">Time</i></th>
 
         </tr>
         </thead>
@@ -78,8 +104,7 @@
                 <td style="border-radius: 20px"><i>${appointment.surname}</i></td>
                 <td style="border-radius: 20px"><i>${appointment.middleName}</i></td>
                 <td style="border-radius: 20px"><i>${appointment.date}</i></td>
-
-
+                <td style="border-radius: 20px"><i>${appointment.time}</i></td>
             </tr>
         </#list>
         </tbody>
